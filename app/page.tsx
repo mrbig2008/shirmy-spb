@@ -9,6 +9,19 @@ const products = [
   { name: "Фудзияма", price: "по запросу", image: "/catalog/fuji.png", tag: "Японские мотивы" },
 ];
 
+const seasonalProducts = [
+  { name: "Ностальгический Новый год", image: "/catalog/seasonal/nostalgic-new-year.jpg" },
+  { name: "Петербургский Дед Мороз", image: "/catalog/seasonal/petersburg-ded-moroz.jpg" },
+  { name: "Зимняя сказка Деда Мороза", image: "/catalog/seasonal/winter-tale-ded-moroz.jpg" },
+  { name: "Зимняя сказка под старину", image: "/catalog/seasonal/winter-tale-vintage.jpg" },
+  { name: "Зимняя сказка", image: "/catalog/seasonal/winter-tale.jpg" },
+  { name: "Новогодняя ночь у окна", image: "/catalog/seasonal/new-year-night-window.jpg" },
+  { name: "Петербург — Новый год", image: "/catalog/seasonal/petersburg-new-year.jpg" },
+  { name: "Подарки с балкона", image: "/catalog/seasonal/gifts-from-balcony.jpg" },
+  { name: "Снежная радость", image: "/catalog/seasonal/snowy-joy.jpg" },
+  { name: "Хоровод у ёлки", image: "/catalog/seasonal/dance-around-tree.jpg" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -37,8 +50,8 @@ export default function Home() {
           <div className="hero-note"><b>от 3 400 ₽</b><span>стоимость зависит от числа створок<br />и выбранных материалов</span></div>
         </div>
         <div className="hero-image-wrap">
-          <img className="hero-image" src="/catalog/bali.png" alt="Декоративная ширма в интерьере" />
-          <span className="hero-stamp">сделано<br />вручную</span>
+          <img className="hero-image" src="/catalog/seasonal/new-year-night-window.jpg" alt="Новогодняя ширма в интерьере" />
+          <span className="hero-stamp">новая<br />коллекция</span>
         </div>
       </section>
 
@@ -49,6 +62,16 @@ export default function Home() {
           <div><b>01</b><span>Собственное<br />производство</span></div>
           <div><b>02</b><span>Любые размеры<br />и конфигурации</span></div>
           <div><b>03</b><span>Дерево и текстиль<br />с вниманием к деталям</span></div>
+        </div>
+      </section>
+
+      <section className="seasonal" id="seasonal">
+        <div className="section-heading"><div><p className="eyebrow">Сезонная коллекция</p><h2>Новогодние<br /><em>ширмы</em></h2></div><p>Тёплые сюжеты для дома, витрин, фотозон и праздничного настроения. Изготавливаем в нужном количестве створок.</p></div>
+        <div className="product-grid">
+          {seasonalProducts.map((product) => <article className="product" key={product.name}>
+            <div className="product-image"><img src={product.image} alt={`Ширма «${product.name}»`} /><span>Новогодняя коллекция</span></div>
+            <div className="product-info"><h3>{product.name}</h3><p>по запросу</p><a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
+          </article>)}
         </div>
       </section>
 
