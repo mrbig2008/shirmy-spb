@@ -70,7 +70,7 @@ export default function Home() {
         <div className="product-grid">
           {seasonalProducts.map((product) => <article className="product" key={product.name}>
             <div className="product-image"><img src={product.image} alt={`Ширма «${product.name}»`} /><span>Новогодняя коллекция</span></div>
-            <div className="product-info"><h3>{product.name}</h3><p>по запросу</p><a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
+            <div className="product-info"><h3>{product.name}</h3><p>3 ств. — 12 000 ₽ · 4 ств. — 15 000 ₽ · 5 ств. — 18 000 ₽</p><a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
           </article>)}
         </div>
       </section>
