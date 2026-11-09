@@ -19,6 +19,7 @@ export default function Home() {
         <nav aria-label="Основная навигация">
           <a href="#catalog">Каталог</a>
           <a href="#custom">На заказ</a>
+          <a href="#payment">Оплата</a>
           <a href="#how">Как заказать</a>
         </nav>
         <a className="header-call" href="tel:+79111254662">+7 911 125-46-62</a>
@@ -74,6 +75,15 @@ export default function Home() {
           <li><b>03</b><h3>Согласуем детали</h3><p>Материалы, цвет, число створок, сроки и стоимость.</p></li>
           <li><b>04</b><h3>Получите ширму</h3><p>Аккуратно изготовим и отправим в ваш город.</p></li>
         </ol>
+      </section>
+
+      <section className="payment" id="payment">
+        <div><p className="eyebrow">Оплата</p><h2>Удобно для частных<br />и <em>корпоративных</em> заказов</h2></div>
+        <div className="payment-options">
+          <article className="payment-feature"><span>01</span><h3>Безналичный расчёт</h3><p>Для компаний и государственных учреждений — оплата по счёту.</p></article>
+          <article><span>02</span><h3>Картой онлайн</h3><p>Безопасная оплата банковской картой через Альфа-Банк.</p></article>
+          <article><span>03</span><h3>Курьеру при получении</h3><p>В Санкт-Петербурге можно оплатить заказ при доставке.</p></article>
+        </div>
       </section>
 
       <section className="contact"><p className="eyebrow">Есть идея?</p><h2>Давайте сделаем<br /><em>красиво.</em></h2><a className="button" href="tel:+79111254662">Позвонить мастеру</a><p className="contact-meta">Ежедневно 10:00–21:00 · Санкт-Петербург</p></section>
