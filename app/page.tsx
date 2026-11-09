@@ -22,6 +22,22 @@ const seasonalProducts = [
   { name: "Хоровод у ёлки", image: "/catalog/seasonal/dance-around-tree.jpg" },
 ];
 
+const seasonalPrices = { 3: "12 000 ₽", 4: "15 000 ₽", 5: "18 000 ₽" } as const;
+
+function SeasonalCard({ product }: { product: (typeof seasonalProducts)[number] }) {
+  const [panels, setPanels] = useState<3 | 4 | 5>(3);
+
+  return <article className="product" key={product.name}>
+    <div className="product-image"><img src={product.image} alt={`Ширма «${product.name}»`} /><span>Новогодняя коллекция</span></div>
+    <div className="product-info">
+      <h3>{product.name}</h3>
+      <label className="panel-picker"><span>Количество створок</span><select value={panels} onChange={(event) => setPanels(Number(event.target.value) as 3 | 4 | 5)}><option value={3}>3 створки</option><option value={4}>4 створки</option><option value={5}>5 створок</option></select></label>
+      <p className="selected-price">{seasonalPrices[panels]}</p>
+      <a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a>
+    </div>
+  </article>;
+}
+
 export default function Home() {
   return (
     <main>
@@ -68,10 +84,7 @@ export default function Home() {
       <section className="seasonal" id="seasonal">
         <div className="section-heading"><div><p className="eyebrow">Сезонная коллекция</p><h2>Новогодние<br /><em>ширмы</em></h2></div><p>Тёплые сюжеты для дома, витрин, фотозон и праздничного настроения. Изготавливаем в нужном количестве створок.</p></div>
         <div className="product-grid">
-          {seasonalProducts.map((product) => <article className="product" key={product.name}>
-            <div className="product-image"><img src={product.image} alt={`Ширма «${product.name}»`} /><span>Новогодняя коллекция</span></div>
-            <div className="product-info"><h3>{product.name}</h3><p>3 ств. — 12 000 ₽ · 4 ств. — 15 000 ₽ · 5 ств. — 18 000 ₽</p><a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
-          </article>)}
+          {seasonalProducts.map((product) => <SeasonalCard product={product} key={product.name} />)}
         </div>
       </section>
 
@@ -114,3 +127,7 @@ export default function Home() {
     </main>
   );
 }
+"use client";
+
+import { useState } from "react";
+
