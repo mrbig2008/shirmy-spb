@@ -47,7 +47,7 @@ export default function Home() {
             <a className="button" href="#catalog">Смотреть модели</a>
             <a className="text-link" href="#custom">Индивидуальный заказ <span>↗</span></a>
           </div>
-          <div className="hero-note"><b>от 3 400 ₽</b><span>стоимость зависит от числа створок<br />и выбранных материалов</span></div>
+          <div className="hero-note"><b>от 12 000 ₽</b><span>стоимость зависит от числа створок<br />и выбранных материалов</span></div>
         </div>
         <div className="hero-image-wrap">
           <img className="hero-image" src="/catalog/seasonal/new-year-night-window.jpg" alt="Новогодняя ширма в интерьере" />
