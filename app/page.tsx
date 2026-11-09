@@ -10,31 +10,57 @@ const products = [
 ];
 
 const seasonalProducts = [
-  { name: "Ностальгический Новый год", image: "/catalog/seasonal/nostalgic-new-year.jpg" },
-  { name: "Петербургский Дед Мороз", image: "/catalog/seasonal/petersburg-ded-moroz.jpg" },
-  { name: "Зимняя сказка Деда Мороза", image: "/catalog/seasonal/winter-tale-ded-moroz.jpg" },
-  { name: "Зимняя сказка под старину", image: "/catalog/seasonal/winter-tale-vintage.jpg" },
-  { name: "Зимняя сказка", image: "/catalog/seasonal/winter-tale.jpg" },
-  { name: "Новогодняя ночь у окна", image: "/catalog/seasonal/new-year-night-window.jpg" },
-  { name: "Петербург — Новый год", image: "/catalog/seasonal/petersburg-new-year.jpg" },
-  { name: "Подарки с балкона", image: "/catalog/seasonal/gifts-from-balcony.jpg" },
-  { name: "Снежная радость", image: "/catalog/seasonal/snowy-joy.jpg" },
-  { name: "Хоровод у ёлки", image: "/catalog/seasonal/dance-around-tree.jpg" },
+  { name: "Ностальгический Новый год", panels: 3, image: "/catalog/seasonal/nostalgic-new-year.jpg" },
+  { name: "Петербургский Дед Мороз", panels: 3, image: "/catalog/seasonal/petersburg-ded-moroz.jpg" },
+  { name: "Зимняя сказка Деда Мороза", panels: 4, image: "/catalog/seasonal/winter-tale-ded-moroz.jpg" },
+  { name: "Зимняя сказка под старину", panels: 4, image: "/catalog/seasonal/winter-tale-vintage.jpg" },
+  { name: "Зимняя сказка", panels: 4, image: "/catalog/seasonal/winter-tale.jpg" },
+  { name: "Новогодняя ночь у окна", panels: 4, image: "/catalog/seasonal/new-year-night-window.jpg" },
+  { name: "Петербург — Новый год", panels: 4, image: "/catalog/seasonal/petersburg-new-year.jpg" },
+  { name: "Подарки с балкона", panels: 4, image: "/catalog/seasonal/gifts-from-balcony.jpg" },
+  { name: "Снежная радость", panels: 4, image: "/catalog/seasonal/snowy-joy.jpg" },
+  { name: "Хоровод у ёлки", panels: 5, image: "/catalog/seasonal/dance-around-tree.jpg" },
 ];
 
 const seasonalPrices = { 3: "12 000 ₽", 4: "15 000 ₽", 5: "18 000 ₽" } as const;
+type NewProduct = { name: string; file: string; panels: number; price: string; flexible?: boolean; options?: number[] };
+const flexibleFromThree = [3, 4, 5, 6, 7, 8];
+const flexibleFromFour = [4, 5, 6, 7, 8];
+const newProducts: NewProduct[] = [
+  { name: "Ширма Окно", file: "2 Окно — примерка .jpg", panels: 4, price: "16 000 ₽", flexible: true, options: flexibleFromFour },
+  { name: "Ширма Окно — За облаками", file: "2 За облаками — примерка 1.jpg", panels: 4, price: "16 000 ₽", flexible: true, options: flexibleFromFour },
+  { name: "Ширма Окно — Бонсай серый", file: "2 Бонсай серый— примерка.jpg", panels: 4, price: "16 000 ₽", flexible: true, options: flexibleFromFour },
+  { name: "Ширма Окно — Бонсай ваниль", file: "2 Бонсай ваниль.jpg", panels: 4, price: "16 000 ₽", flexible: true, options: flexibleFromFour },
+  { name: "Ширма Окно — Бамбуковый пейзаж", file: "2 Бамбуковый пейзаж — примерка.jpg", panels: 4, price: "16 000 ₽", flexible: true, options: flexibleFromFour },
+  { name: "Арабеска 1 — ваниль", file: "3 Арабеска1 — ваниль.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Арабеска 1 — белая", file: "3 Арабеска1 белая.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Арабеска 2 — ваниль", file: "3 Арабеска2 ваниль.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Арабеска 2 — белая", file: "3 Арабеска2 белая.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Дерево голубое", file: "3 Дерево голубое — примерка.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Камень", file: "3 Камень.jpg", panels: 3, price: "11 000 ₽", flexible: true, options: flexibleFromThree },
+  { name: "Валериа", file: "3 Валериа.jpg", panels: 3, price: "11 000 ₽" }, { name: "Город на фламинго", file: "3 Город на фламинго — примерка.jpg", panels: 3, price: "11 000 ₽" }, { name: "Мексиканский дворик", file: "3 Мексиканский дворик.jpg", panels: 3, price: "11 000 ₽" }, { name: "Поле подсолнухов", file: "3 Поле подсолнухов — примерка.jpg", panels: 3, price: "11 000 ₽" },
+  { name: "Ботаника", file: "4 Ботаника — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Дотянуться до счастья", file: "4 Дотянуться до счастья — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Золотая глициния", file: "4 Золотая глициния — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Китайский сад", file: "4 Китайский сад — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Китайский сад 2", file: "4  китайский сад2.jpg", panels: 4, price: "14 000 ₽" }, { name: "Пейзаж ваниль", file: "4 Пейзаж ваниль — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Пионы и ласточки", file: "4 Пионы и ласточки — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Сакура", file: "4 Сакура — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Сапфировый вальс", file: "4 Сапфировый вальс — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Танец журавлей", file: "4 Танец журавлей.jpg", panels: 4, price: "14 000 ₽" }, { name: "Терракота", file: "4 Терракота — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Тигр и леопард", file: "4 Тигр и леопард — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Тихая река", file: "4 Тихая река — примерка.jpg", panels: 4, price: "14 000 ₽" }, { name: "Фламинго и кувшинки", file: "4 Фламинго и кувшинки — примерка.jpg", panels: 4, price: "14 000 ₽" },
+  { name: "Журавли закат", file: "5 Журавли закат — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли золото мягкое", file: "5 Журавли золото мягкое.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли и бамбук", file: "5 Журавли и бамбук — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли и сакура", file: "5 Журавли и сакура — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли и сосны", file: "5 Журавли и сосны — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли на золоте", file: "5 Журавли на золоте — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Журавли у туманного озера", file: "5 Журавли у туманного озера — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Золотой берег", file: "5 Золотой берег — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Киты", file: "5 Киты — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Лотос белый", file: "5 Лотос белый — примерка.jpg", panels: 5, price: "17 000 ₽", flexible: true, options: flexibleFromThree }, { name: "Лотос ваниль", file: "5 Лотос ваниль — примерка.jpg", panels: 5, price: "17 000 ₽", flexible: true, options: flexibleFromThree }, { name: "Лунный пруд", file: "5 Лунный пруд — примерка.jpg", panels: 5, price: "17 000 ₽" }, { name: "Пионы и птицы", file: "5 Пионы и птицы — примерка.jpg", panels: 5, price: "17 000 ₽", flexible: true, options: flexibleFromThree }, { name: "Пионы и птицы", file: "5 Пионы и птицы.jpg", panels: 5, price: "17 000 ₽", flexible: true, options: flexibleFromThree }, { name: "Тропики белая", file: "5 Тропики белая.jpg", panels: 5, price: "17 000 ₽" }, { name: "Тропики ваниль", file: "5 Тропики ваниль.jpg", panels: 5, price: "17 000 ₽" }, { name: "Тропики орех", file: "5 Тропики орех.jpg", panels: 5, price: "17 000 ₽" }, { name: "Японский пейзаж", file: "5 Японский пейзаж — примерка.jpg", panels: 5, price: "17 000 ₽" },
+];
 
 function SeasonalCard({ product }: { product: (typeof seasonalProducts)[number] }) {
-  const [panels, setPanels] = useState<3 | 4 | 5>(3);
-
   return <article className="product" key={product.name}>
     <div className="product-image"><img src={product.image} alt={`Ширма «${product.name}»`} /><span>Новогодняя коллекция</span></div>
     <div className="product-info">
       <h3>{product.name}</h3>
-      <label className="panel-picker"><span>Количество створок</span><select value={panels} onChange={(event) => setPanels(Number(event.target.value) as 3 | 4 | 5)}><option value={3}>3 створки</option><option value={4}>4 створки</option><option value={5}>5 створок</option></select></label>
-      <p className="selected-price">{seasonalPrices[panels]}</p>
+      <p className="selected-price">{product.panels} {product.panels === 5 ? "створок" : "створки"} · {seasonalPrices[product.panels]}</p>
       <a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a>
     </div>
+  </article>;
+}
+
+function NewProductCard({ product }: { product: NewProduct }) {
+  const [panels, setPanels] = useState(product.panels);
+  const selectedIsOriginal = panels === product.panels;
+  const image = `/catalog/new/${encodeURIComponent(product.file)}`;
+  return <article className="product" key={product.file}>
+    <div className="product-image"><img src={image} alt={`Ширма «${product.name}»`} /><span>{product.panels} {product.panels === 5 ? "створок" : "створки"}</span></div>
+    <div className="product-info"><h3>{product.name}</h3>{product.flexible ? <><label className="panel-picker"><span>Количество створок</span><select value={panels} onChange={(event) => setPanels(Number(event.target.value))}>{product.options?.map((option) => <option key={option} value={option}>{option} {option === 5 ? "створок" : "створки"}</option>)}</select></label><p className="selected-price">{selectedIsOriginal ? product.price : "по запросу"}</p></> : <p>{product.panels} {product.panels === 5 ? "створок" : "створки"} · {product.price}</p>}<a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
   </article>;
 }
 
@@ -96,6 +122,11 @@ export default function Home() {
             <div className="product-info"><h3>{product.name}</h3><p>{product.price}</p><a href="#custom" aria-label={`Узнать о модели ${product.name}`}>Узнать подробнее <span>→</span></a></div>
           </article>)}
         </div>
+      </section>
+
+      <section className="catalog new-catalog" id="new-models">
+        <div className="section-heading"><div><p className="eyebrow">Новые модели</p><h2>Для дома<br /><em>и интерьера</em></h2></div><p>Оригинальные модели с фиксированной ценой за количество створок на фото. Вариативные модели отмечены выбором размера.</p></div>
+        <div className="product-grid">{newProducts.map((product) => <NewProductCard product={product} key={product.file} />)}</div>
       </section>
 
       <section className="custom" id="custom">
